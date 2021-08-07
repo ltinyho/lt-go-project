@@ -1,0 +1,24 @@
+syntax = "proto3";
+package ltinyho.api;
+
+option go_package = "app/user/internal/conf;conf";
+
+message Server{
+  message HTTP {
+    string network = 1;
+    string addr = 2;
+  }
+  HTTP http = 1;
+}
+
+message Data {
+  message Database {
+    string driver = 1;
+    string source = 2;
+  }
+  message Redis {
+    string network = 1;
+    string addr = 2;
+  }
+  Database database = 1;
+}

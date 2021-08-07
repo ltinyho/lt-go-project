@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package user.service.v1;
+
+option go_package = "api/user/service/v1;v1";
+
+service User {
+  rpc CreateUser(CreateUserReq)returns (CreateUserRes){
+    option (google.api.http) = {
+      get: "/helloworld/{name}",
+    };
+  }
+
+}
+
+
+message CreateUserReq {
+  string username = 1;
+  string password = 2;
+  string name = 3;
+  int32  age = 4;
+}
+
+message CreateUserRes {
+  int64 uid = 1;
+  string username = 2;
+}
